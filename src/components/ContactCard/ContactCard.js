@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGithub,
   faLinkedin,
-  fa500px,
+  faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
@@ -18,17 +18,9 @@ import Anchor from '../Anchor';
 import AnchorButton from '../AnchorButton';
 import classes from './ContactCard.module.css';
 
-function ContactCard({
-  theme,
-  data = {},
-}) {
+function ContactCard({ theme, data = {} }) {
   const {
-    site: {
-      siteMetadata: {
-        social = {},
-        contact = {},
-      } = {},
-    } = {},
+    site: { siteMetadata: { social = {}, contact = {} } = {} } = {},
   } = data;
 
   return (
@@ -40,11 +32,7 @@ function ContactCard({
           external
           ariaLabel="GitHub profile"
         >
-          <FontAwesomeIcon
-            icon={faGithub}
-            className={classes.icon}
-            size="lg"
-          />
+          <FontAwesomeIcon icon={faGithub} className={classes.icon} size="lg" />
         </Anchor>
         <Anchor
           title={`${social.linkedin} on LinkedIn`}
@@ -59,28 +47,25 @@ function ContactCard({
           />
         </Anchor>
         <Anchor
-          title={`${social.fiveHundredPx} on 500px`}
-          href={`https://500px.com/${social.fiveHundredPx}`}
+          title={`${social.twitter} on Twitter`}
+          href={`https://twitter.com/${social.twitter}`}
           external
-          aria-label="500px profile"
+          aria-label="Twitter profile"
         >
           <FontAwesomeIcon
-            icon={fa500px}
+            icon={faTwitter}
             className={classes.icon}
             size="lg"
           />
         </Anchor>
       </div>
       <div className={classes.container__email}>
-        <Anchor
-          href={`mailto:${contact.email}`}
-          external
-        >
+        <Anchor href={`mailto:${contact.email}`} external>
           <FontAwesomeIcon
             icon={faEnvelope}
             className={`${classes.icon} ${classes.email__icon}`}
           />
-          { contact.displayedEmail }
+          {contact.displayedEmail}
         </Anchor>
       </div>
       <AnchorButton
@@ -107,7 +92,7 @@ ContactCard.propTypes = {
         social: PropTypes.shape({
           github: PropTypes.string.isRequired,
           linkedin: PropTypes.string.isRequired,
-          fiveHundredPx: PropTypes.string.isRequired,
+          twitter: PropTypes.string.isRequired,
         }).isRequired,
       }).isRequired,
     }).isRequired,
@@ -119,27 +104,25 @@ const ThemedContactCard = withTheme(ContactCard);
 export default function ContactCardWithData() {
   return (
     <StaticQuery
-      query={
-        graphql`
-          query {
-            site {
-              siteMetadata {
-                contact {
-                  name,
-                  email,
-                  displayedEmail,
-                  resumeUrl,
-                },
-                social {
-                  github,
-                  linkedin,
-                  fiveHundredPx,
-                }
+      query={graphql`
+        query {
+          site {
+            siteMetadata {
+              contact {
+                name
+                email
+                displayedEmail
+                resumeUrl
+              }
+              social {
+                github
+                linkedin
+                twitter
               }
             }
           }
-        `
-      }
+        }
+      `}
       render={data => <ThemedContactCard data={data} />}
     />
   );

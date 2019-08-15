@@ -1,1 +1,3 @@
-Hi! I'm a web front-end software engineer, passionate about high-quality engineering and positive user experiences. Currently working at [Square](https://squareup.com).
+Hi! 👋 I'm a product manager & web front-end software engineer, obsessed w/ great product design 🛠️ & understanding the end consumer 🧠
+
+Currently working with my friend, [Matt](https://twitter.com/msh_nyc) 🚀 to create & grow internet businesses @ [West Vesey](https://www.westvesey.com/portfolio/) 📈

@@ -13,20 +13,20 @@ export default function HTML(props) {
   } = props;
 
   return (
-    <html
-      {...htmlAttributes}
-      lang="en"
-    >
+    <html {...htmlAttributes} lang="en">
       <head>
-        <title>colin tinney</title>
+        <title>anthony diké</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" />
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato|Open+Sans"
+        />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon-a.png" />
         {headComponents}
       </head>
       <body {...bodyAttributes}>
